@@ -1,0 +1,37 @@
+package restFull.restFullEstudiante.servicios;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import restFull.restFullEstudiante.modelos.Estudiante;
+import restFull.restFullEstudiante.repositorios.EstudianteRepositorio;
+
+@Service
+public class EstudianteServicioImpl implements IEstudianteServicio {
+
+	    @Autowired
+	    EstudianteRepositorio estudianteRepositorio;
+
+	    @Override
+	    public List<Estudiante> obtenertodo() {
+	        return estudianteRepositorio.findAll();
+	    }
+
+	    @Override
+	    public Estudiante guardar(Estudiante estudiante) {
+	        return estudianteRepositorio.save(estudiante);
+	    }
+
+	    @Override
+	    public Estudiante obtenerPorId(long legajo) {
+	        return estudianteRepositorio.findById(legajo).orElse(null);
+	    }
+
+	    @Override
+	    public void eliminar(long legajo) {
+	        estudianteRepositorio.deleteById(legajo);    
+	    }
+	}
+
