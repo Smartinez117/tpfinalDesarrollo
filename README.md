@@ -5,10 +5,12 @@ Para crear una aplicación RESTful utilizando Spring Boot y MySQL, se utilizan c
 
 Controlador:
 El controlador es la capa que maneja las solicitudes HTTP. Su función principal es recibir las peticiones del cliente (por ejemplo, desde un navegador o una herramienta como Postman) y devolver las respuestas adecuadas. En Spring Boot, los controladores se definen utilizando la anotación @RestController.
-
 ejemplo de controlador: En este ejemplo, el controlador maneja las rutas /api/products para obtener todos los productos y para crear un nuevo producto.
+
+
 @RestController
 @RequestMapping("/api/products")
+
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -23,9 +25,13 @@ public class ProductController {
         return productService.save(product);
     }
 }
+
+
 Servicio: 
 La capa de servicio contiene la lógica de negocio de la aplicación. Se encarga de procesar los datos que recibe del controlador y coordinar las operaciones necesarias utilizando el repositorio. Esto ayuda a mantener el controlador limpio y enfocado en manejar las solicitudes.
 ejemplo de servicio: Aquí, el servicio ProductService interactúa con el repositorio para obtener todos los productos o guardar uno nuevo.
+
+
 @Service
 public class ProductService {
     @Autowired
@@ -40,16 +46,22 @@ public class ProductService {
     }
 }
 
+
 Repositorio
 El repositorio es la capa que se encarga de la comunicación directa con la base de datos. Utiliza Spring Data JPA para simplificar las operaciones CRUD. Los repositorios permiten realizar consultas sin necesidad de escribir código SQL manualmente.
 ejemplo de repositorio: Este repositorio extiende CrudRepository, lo que le proporciona métodos predefinidos para realizar operaciones CRUD sobre la entidad Product.
 
+
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
 }
+
+
 Modelo
 El modelo representa la estructura de los datos que se almacenan en la base de datos. En Spring Boot, esto se define mediante clases Java que se mapean a tablas en MySQL utilizando anotaciones JPA.
 ejemplo de modelo:La clase Product está anotada con @Entity, lo que indica que es una entidad persistente que corresponde a una tabla en la base de datos.
+
+
 @Entity
 public class Product {
     @Id
@@ -62,6 +74,8 @@ public class Product {
 
     // Getters y Setters
 }
+
+
 
 Interacción entre capas
 El flujo comienza en el Controlador: Cuando un cliente hace una solicitud HTTP (por ejemplo, un POST para crear un producto), el controlador recibe esta solicitud.
