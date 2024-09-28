@@ -7,19 +7,16 @@ Controlador:
 El controlador es la capa que maneja las solicitudes HTTP. Su función principal es recibir las peticiones del cliente (por ejemplo, desde un navegador o una herramienta como Postman) y devolver las respuestas adecuadas. En Spring Boot, los controladores se definen utilizando la anotación @RestController.
 ejemplo de controlador: En este ejemplo, el controlador maneja las rutas /api/products para obtener todos los productos y para crear un nuevo producto.
 
-
 @RestController
 @RequestMapping("/api/products")
 
 public class ProductController {
     @Autowired
     private ProductService productService;
-
     @GetMapping
     public List<Product> getAllProducts() {
         return productService.findAll();
     }
-
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
         return productService.save(product);
@@ -36,11 +33,9 @@ ejemplo de servicio: Aquí, el servicio ProductService interactúa con el reposi
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
-
     public List<Product> findAll() {
         return productRepository.findAll();
     }
-
     public Product save(Product product) {
         return productRepository.save(product);
     }
@@ -67,11 +62,9 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     private String name;
     private int quantity;
     private double price;
-
     // Getters y Setters
 }
 
