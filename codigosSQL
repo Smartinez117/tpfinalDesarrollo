@@ -1,0 +1,5 @@
+CREATE DATABASE bd_apirest_prueba;
+DROP DATABASE nombre_base_datos;
+
+create table nombreTabla; --luego definir todos los campos necesario
+drop table nombreTabla; --no es necesario definir otros capos
