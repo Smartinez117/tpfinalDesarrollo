@@ -1,0 +1,17 @@
+package restFull.restFullEstudiante.servicios;
+
+import java.util.List;
+
+import restFull.restFullEstudiante.modelos.Estudiante;
+
+public interface IEstudianteServicio {
+	
+	public List<Estudiante> obtenertodo();
+	
+	public Estudiante guardar(Estudiante estudiante);
+	
+	public Estudiante obtenerPorId(long legajo);
+	
+	public void eliminar(long legajo);
+
+}
