@@ -1,0 +1,13 @@
+package com.example.restFullEstudiante; //basta con cambiar el nombre del paquete a lo necesario.
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class restFullEstudianteAplication {
+	
+		public static void main(String[] args) {
+			
+			SpringApplication.run(restFullEstudianteAplication.class,args);
+		}
+}
