@@ -1,0 +1,23 @@
+1. Consulta con el ID de un alumno para ver todos los campos del alumno y el curso al que está inscrito
+
+SELECT Alumno.*, Curso.* 
+FROM test.Alumno JOIN test.Alumno_Curso ON Alumno.id = Alumno_Curso.alumno_id JOIN test.Curso ON test.Alumno_Curso.curso_id = Curso.id 
+WHERE Alumno.id = 1;
+
+2. Consulta con el ID de un curso para ver todos sus campos junto con los alumnos inscritos
+SELECT Curso.*, Alumno.*
+FROM test.Curso
+JOIN test.Alumno_Curso ON Curso.id = Alumno_Curso.curso_id
+JOIN test.Alumno ON Alumno_Curso.alumno_id = Alumno.id
+WHERE Curso.id = 1;
+
+3. Consulta con el ID de un docente para ver todos sus campos y los cursos que dicta
+SELECT Docente.*, Curso.*
+FROM test.Docente
+JOIN test.Curso ON Docente.legajo = Curso.docente_legajo
+WHERE Docente.legajo = 1001;
+
+4. Consulta para obtener todos los temas con los cursos en los que se dictan (todos los campos de curso)
+SELECT Tema.*, Curso.*
+FROM test.Tema
+JOIN test.Curso ON Tema.id = Curso.tema_id;
